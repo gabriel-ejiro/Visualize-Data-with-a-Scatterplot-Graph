@@ -11,5 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to create scatter plot
     function createScatterPlot(data) {
         // Add your D3.js code here to create the scatter plot
+        // User story #1
+        <h1 id="title">D3.js Scatter Plot</h1>
     }
 });
