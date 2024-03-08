@@ -184,8 +184,50 @@ svg.append("g")
     .attr("id", "y-axis")
     .call(yAxis);
 
-// User story #13
+// User story #14
+// Select the tooltip element
+const tooltip = d3.select("#tooltip");
 
+// Add mouseover event listener to dots
+svg.selectAll(".dot")
+  .on("mouseover", (event, d) => {
+    // Show tooltip
+    tooltip
+      .style("left", event.pageX + "px")
+      .style("top", event.pageY + "px")
+      .classed("show", true);
+
+    // Set tooltip text
+    tooltip.select("#tooltip-text").text(`X: ${d.xValue}, Y: ${d.yValue}`);
+  })
+  .on("mouseout", () => {
+    // Hide tooltip on mouseout
+    tooltip.classed("show", false);
+  });
+
+// User story #15
+// Select the tooltip element
+const tooltip = d3.select("#tooltip");
+
+// Add mouseover event listener to dots
+svg.selectAll(".dot")
+  .on("mouseover", (event, d) => {
+    // Show tooltip
+    tooltip
+      .style("left", event.pageX + "px")
+      .style("top", event.pageY + "px")
+      .classed("show", true);
+
+    // Set tooltip text
+    tooltip.select("#tooltip-text").text(`X: ${d.xValue}, Y: ${d.yValue}`);
+
+    // Set data-year attribute
+    tooltip.attr("data-year", d.xValue);
+  })
+  .on("mouseout", () => {
+    // Hide tooltip on mouseout
+    tooltip.classed("show", false);
+  });
 
 
 
