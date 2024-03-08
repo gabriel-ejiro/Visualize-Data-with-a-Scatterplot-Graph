@@ -128,6 +128,63 @@ svg.append("g")
 
 // User story #9
 
+// Create y-axis with time format
+const yAxis = d3.axisLeft(yScale)
+    .tickFormat(d3.timeFormat("%M:%S"));
+
+// Append y-axis to SVG
+svg.append("g")
+    .attr("id", "y-axis")
+    .call(yAxis);
+
+// User story #10
+// Create x-axis with year format
+const xAxis = d3.axisBottom(xScale)
+    .tickFormat(d3.format("d")); // Use d3.format("d") to format tick labels as years
+
+// Append x-axis to SVG
+svg.append("g")
+    .attr("id", "x-axis")
+    .attr("transform", `translate(0, ${height})`) // Position at the bottom of the chart
+    .call(xAxis);
+
+// User story #11
+// Assuming `data` is your dataset and you have an SVG container named `svg`
+
+// Define x scale with appropriate domain
+const xScale = d3.scaleLinear()
+    .domain([d3.min(data, d => d.xValue), d3.max(data, d => d.xValue)]) // Set domain based on actual x-axis data range
+    .range([0, width]); // Adjust range based on your chart width
+
+// Create x-axis with year format
+const xAxis = d3.axisBottom(xScale)
+    .tickFormat(d3.format("d")); // Use d3.format("d") to format tick labels as years
+
+// Append x-axis to SVG
+svg.append("g")
+    .attr("id", "x-axis")
+    .attr("transform", `translate(0, ${height})`) // Position at the bottom of the chart
+    .call(xAxis);
+
+
+// User story #12
+// Assuming `data` is your dataset and you have an SVG container named `svg`
+
+// Define y scale with appropriate domain
+const yScale = d3.scaleLinear()
+    .domain([d3.min(data, d => d.yValue), d3.max(data, d => d.yValue)]) // Set domain based on actual y-axis data range
+    .range([height, 0]); // Adjust range based on your chart height
+
+// Create y-axis with time format
+const yAxis = d3.axisLeft(yScale)
+    .tickFormat(d3.timeFormat("%M:%S")); // Format tick labels as %M:%S time format
+
+// Append y-axis to SVG
+svg.append("g")
+    .attr("id", "y-axis")
+    .call(yAxis);
+
+// User story #13
 
 
 
